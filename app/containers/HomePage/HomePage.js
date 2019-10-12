@@ -64,11 +64,12 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
             <img src={screen} alt="screen" className="screen" />
           </section>
           <section>
-            <PinchView backgroundColor='#FAFAFA' initalScale={2} maxScale={2} containerRatio={55}>
+            <PinchView backgroundColor='#FAFAFA' initalScale={2} maxScale={4} containerRatio={55}>
               <div className="seats-map-container">
                   <ReposList className="seats-map" seatMap={seatMap} choosingSeat={(seat) => this.choosingSeat(seat)} />
               </div>
             </PinchView>
+            <p className="map-hint">*Giữ phím ALT và kéo thả chuột để phóng to / thu nhỏ sơ đồ</p>
             <div>
               <SeatKind seatKind={seatKind} />
             </div>
