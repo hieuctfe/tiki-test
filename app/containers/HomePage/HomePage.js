@@ -8,26 +8,51 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import ReposList from 'components/ReposList';
+import SeatKind from 'components/SeatKind';
+import GeneralInfo from 'components/GeneralInfo';
 import screen from './image/bg-screen.png';
 import './style.scss';
+import {textSort} from '../../utils/utils';
+import {PinchView} from 'react-pinch-zoom-pan'
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-  /**
-   * when initial state username is not null, submit the form to load repos
-   */
+  
   componentDidMount() {
-    const { username, onSubmitForm } = this.props;
-    if (username && username.trim().length > 0) {
-      onSubmitForm();
+    const { fetchFirm } = this.props;
+    fetchFirm()
+  }
+
+  choosingSeat(seatInfo) {
+    const firm_info = this.props.firm_info;
+    const { updateFirm, choosingSeat} = this.props
+    if (choosingSeat.length < 6 || seatInfo.isBooking) {
+      const row = seatInfo['row'];
+      firm_info.seatMap[row] = firm_info.seatMap[row].map(seat => {
+        if (seatInfo.name == seat.name) {
+          seat.isBooking = !(!!seat.isBooking)
+        };
+        return seat;
+      })
+      updateFirm(firm_info, seatInfo)
+    } else {
+      alert("Bạn chỉ được chọn tối đa 6 ghế");
     }
   }
 
-  render() {
-    const {
-      loading, error, repos, username, onChangeUsername, onSubmitForm
-    } = this.props;
-    const reposListProps = []
+  prepareSeatMap(seatKind, seatMap) {
+    return Object.keys(seatMap).sort(textSort).map(row => seatMap[row].map(seat => {
+      const { background, color, price } = seatKind.find(seat2 => seat2.id == seat.seatKindId)
+      if (background && color && price) {
+        seat = { ...seat, background, color, row, price }
+      }
+      return seat
+    }))
+  }
 
+  render() {
+    let { seatKind = [], seatMap = [] } = this.props.firm_info
+    const {firm_info, choosingSeat} = this.props
+    seatMap = this.prepareSeatMap(seatKind, seatMap)
     return (
       <article>
         <Helmet>
@@ -36,10 +61,21 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
         </Helmet>
         <div className="home-page">
           <section className="centered">
-            <img src={screen} alt="screen" className="screen"/>
+            <img src={screen} alt="screen" className="screen" />
           </section>
           <section>
-            <ReposList {...reposListProps} />
+            <PinchView backgroundColor='#FAFAFA' initalScale={2} maxScale={2} containerRatio={55}>
+              <div className="seats-map-container">
+                  <ReposList className="seats-map" seatMap={seatMap} choosingSeat={(seat) => this.choosingSeat(seat)} />
+              </div>
+            </PinchView>
+            <div>
+              <SeatKind seatKind={seatKind} />
+            </div>
+          </section>
+              <GeneralInfo choosingSeat={choosingSeat} firmInfo={firm_info}/>
+          <section>
+
           </section>
         </div>
       </article>
@@ -48,10 +84,4 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
 }
 
 HomePage.propTypes = {
-  loading: PropTypes.bool,
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-  onSubmitForm: PropTypes.func,
-  username: PropTypes.string,
-  onChangeUsername: PropTypes.func
 };

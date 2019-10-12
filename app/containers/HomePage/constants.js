@@ -9,4 +9,12 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const CHANGE_USERNAME = 'boilerplate/Home/CHANGE_USERNAME';
+export const GET_FIRM_INFO = 'Home/GET_FIRM_INFO';
+
+export const SET_FIRM_INFO = 'Home/SET_FIRM_INFO';
+
+export const UPDATE_FIRM_INFO = 'Home/UPDATE_FIRM_INFO';
+
+export const UPDATE_CHOOSING_SEAT = 'Home/UPDATE_CHOOSING_SEAT';
+
+

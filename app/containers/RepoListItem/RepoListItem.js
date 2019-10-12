@@ -7,7 +7,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListItem from 'components/ListItem';
-import { IssueIcon } from 'components/Icons';
 import './style.scss';
 
 export default class RepoListItem extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -28,7 +27,6 @@ export default class RepoListItem extends React.PureComponent { // eslint-disabl
           {nameprefix + item.name}
         </a>
         <a className="repo-list-item__issue-link" href={`${item.html_url}/issues`} target="_blank" rel="noopener noreferrer">
-          <IssueIcon className="repo-list-item__issue-icon" />
           {item.open_issues_count}
         </a>
       </div>
