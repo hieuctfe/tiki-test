@@ -1,0 +1,28 @@
+@import '../../styles/seat-color.scss';
+.seat-kind-container {
+  margin-top: 20px;
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: dashed 1px lightgray;
+  li {
+    list-style-type: none;
+    width: 30%;
+    // margin-top: 5px;
+    div {
+      border-radius: 100%;
+      border: solid 1px lightgrey;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 5px;
+      &.booked {
+        @extend .booked-bgc;
+      }
+      &.booking {
+        @extend .booking-bgc;
+      }
+    }
+  }
+}
