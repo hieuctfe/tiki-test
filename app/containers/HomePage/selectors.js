@@ -1,13 +1,19 @@
 import { createSelector } from 'reselect';
 
-const selectHome = (state) => state.home;
+const selectHome = (state) => state.home
 
-const makeSelectUsername = () => createSelector(
+const makeSelectFirm = () => createSelector(
   selectHome,
-  (homeState) => homeState.username
+  (homeState) => homeState.firm_info
+);
+
+const choosingSeat = () => createSelector(
+  selectHome,
+  (homeState) => homeState.choosing_seat
 );
 
 export {
   selectHome,
-  makeSelectUsername,
+  makeSelectFirm,
+  choosingSeat
 };

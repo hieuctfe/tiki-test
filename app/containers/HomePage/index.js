@@ -3,31 +3,27 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
+import { getFirmInfo, updateFirmInfo} from './actions';
 import {
-  makeSelectRepos,
-  makeSelectLoading,
-  makeSelectError
-} from 'containers/App/selectors';
-import { loadRepos } from '../App/actions';
-import { changeUsername } from './actions';
-import { makeSelectUsername } from './selectors';
+  makeSelectFirm,
+  choosingSeat,
+} from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import HomePage from './HomePage';
 
 const mapDispatchToProps = (dispatch) => ({
-  onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
-  onSubmitForm: (evt) => {
-    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-    dispatch(loadRepos());
-  }
+  fetchFirm: () => {
+    dispatch(getFirmInfo());
+  },
+  updateFirm: (firm_info, choosing_seat) => {
+    dispatch(updateFirmInfo(firm_info, choosing_seat));
+  },
 });
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
-  username: makeSelectUsername(),
-  loading: makeSelectLoading(),
-  error: makeSelectError()
+    firm_info: makeSelectFirm(),
+    choosingSeat: choosingSeat()
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

@@ -1,0 +1,34 @@
+@import '../../styles/seat-color.scss';
+.seat {
+    width: 25px;
+    height: 25px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 25px;
+    display: inline-block;
+    margin: 1px;
+    border: solid 1px lightgray;
+    color: #222;
+    &:hover {
+        cursor: pointer;
+    }
+    &.booked {
+        &:hover {
+            cursor: unset;
+        }
+        @extend .booked-bgc;
+    }
+    &.booking {
+        @extend .booking-bgc;
+        color: white!important;
+    }
+}
+
+.way {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    margin: 1px;
+    display: inline-block;
+}

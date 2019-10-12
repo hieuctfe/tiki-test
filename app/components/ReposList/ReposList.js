@@ -1,24 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Seat from 'components/Seat';
+import './style.scss';
 
-import List from 'components/List';
-import ListItem from 'components/ListItem';
-import LoadingIndicator from 'components/LoadingIndicator';
-import RepoListItem from 'containers/RepoListItem';
+const ReposList = ({seatMap = {}, choosingSeat = () => {}}) => {
+  const map = Object.keys(seatMap).map(row =>
+    <div key={row} className="seatRow"> 
+      { seatMap[row].map(seat => <Seat onChoosing={choosingSeat} onClick="choosingSeat()" key={Math.random()} seatInfo={seat}/>) } 
+    </div>
+  )
 
-const ReposList = (seetMap = []) => {
-
-  if (seetMap) {
-    // return <List items={repos} component={RepoListItem} />;
-  }
-
-  return null;
+  return map;
 };
 
 ReposList.propTypes = {
-  loading: PropTypes.bool,
-  error: PropTypes.any,
-  repos: PropTypes.any
+  seatMap: PropTypes.any,
 };
 
 export default ReposList;
