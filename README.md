@@ -40,7 +40,6 @@ Here are a few highlights to look out for in this boilerplate
 ## Structure
 
 ```
-
 |-- instagram-private
     |-- .editorconfig
     |-- .eslintrc
@@ -54,7 +53,7 @@ Here are a few highlights to look out for in this boilerplate
     |-- babel.config.js
     |-- directoryList.md
     |-- jest.config.js
-    |-- model-test.json                 // fake Model here (uploaded online API)
+    |-- model-test.json
     |-- package-lock.json
     |-- package.json
     |-- yarn.lock
@@ -113,8 +112,6 @@ Here are a few highlights to look out for in this boilerplate
     |   |       |-- SeatKind.js
     |   |       |-- index.js
     |   |       |-- style.scss
-    |   |       |-- tests
-    |   |           |-- index.test.js
     |   |-- containers
     |   |   |-- App
     |   |   |   |-- App.js
@@ -125,10 +122,7 @@ Here are a few highlights to look out for in this boilerplate
     |   |   |   |-- selectors.js
     |   |   |   |-- style.scss
     |   |   |   |-- tests
-    |   |   |       |-- actions.test.js
     |   |   |       |-- index.test.js
-    |   |   |       |-- reducer.test.js
-    |   |   |       |-- selectors.test.js
     |   |   |-- HomePage
     |   |   |   |-- HomePage.js
     |   |   |   |-- Loadable.js
@@ -140,15 +134,7 @@ Here are a few highlights to look out for in this boilerplate
     |   |   |   |-- selectors.js
     |   |   |   |-- style.scss
     |   |   |   |-- image
-    |   |   |   |   |-- bg-screen.png
-    |   |   |   |-- tests
-    |   |   |       |-- actions.test.js
-    |   |   |       |-- index.test.js
-    |   |   |       |-- reducer.test.js
-    |   |   |       |-- saga.test.js
-    |   |   |       |-- selectors.test.js
-    |   |   |       |-- __snapshots__
-    |   |   |           |-- saga.test.js.snap
+    |   |   |       |-- bg-screen.png
     |   |   |-- RepoListItem
     |   |       |-- RepoListItem.js
     |   |       |-- index.js
@@ -199,7 +185,6 @@ Here are a few highlights to look out for in this boilerplate
             |-- argv.js
             |-- logger.js
             |-- port.js
-
 
 ```
 

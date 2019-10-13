@@ -5,7 +5,7 @@
     font-size: 14px;
     padding: 15px;
     border-radius: 8px;
-    background-size: 100% 100%;
+    background-size: auto 100%;
     // justify-content: space-between;
     & > div {
         margin-right: 20px;
@@ -24,5 +24,21 @@
     }
     .cenima {
         flex: 20;
+        margin: 0px;
+    }
+
+    .seat-time-info {
+        flex: 40;
+        div {
+            div {
+                display: inline-block;
+            }
+            div:nth-child(1) {
+                width: 80px;
+            }
+            div:nth-child(2) {
+                font-weight: bolder;
+            }
+        }
     }
 }

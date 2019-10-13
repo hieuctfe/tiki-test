@@ -12,7 +12,7 @@ import request from 'utils/request';
 
 export function* getFirm() {
   // Select username from store
-  const requestURL = `http://www.json-generator.com/api/json/get/cebfBtmeMi?indent=2`;
+  const requestURL = `http://www.json-generator.com/api/json/get/bOKAXGWXZu?indent=2`;
   try {
     const firm_info = yield call(request, requestURL);
     yield put(firmLoaded(firm_info));
