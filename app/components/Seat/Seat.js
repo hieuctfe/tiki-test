@@ -8,6 +8,7 @@ const Seat = ({seatInfo, onChoosing}) => {
   className = name ? "seat" : "way"
   if (isBooked) className += " booked";
   if (isBooking) className += " booking";
+  // render color dynamic by kind of color in model
   return (<div onClick={(isBooked || !name) ? () => {} : onChoosing.bind(null,seatInfo)} 
                style={{borderColor: background}} 
                className={className}>
