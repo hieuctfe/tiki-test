@@ -135,12 +135,6 @@ Here are a few highlights to look out for in this boilerplate
     |   |   |   |-- style.scss
     |   |   |   |-- image
     |   |   |       |-- bg-screen.png
-    |   |   |-- RepoListItem
-    |   |       |-- RepoListItem.js
-    |   |       |-- index.js
-    |   |       |-- style.scss
-    |   |       |-- tests
-    |   |           |-- index.test.js
     |   |-- images
     |   |   |-- favicon.ico
     |   |-- styles
