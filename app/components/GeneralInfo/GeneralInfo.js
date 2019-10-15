@@ -63,7 +63,7 @@ const GeneralInfo = ({ firmInfo, choosingSeat = [] }) => {
           <div>{result.seats}</div>
         </div>
         <div>
-          <div>Còn:</div>
+          <div>Đã đặt:</div>
           <div>{numberOfbooked(firmInfo.seatMap).booked} / {numberOfbooked(firmInfo.seatMap).total}</div>
         </div>
       </div>
